@@ -77,6 +77,12 @@ Auto-retry SMS logic, antenna noise filtering, and network self-checks for relia
 |----------|-----------|---------------------------|
 | AOUT     | GPIO 34   | Analog Input Only pin     |
 
+
+## 🔌 Wiring Diagram
+
+<img width="1920" height="1080" alt="weather system wiring diagram" src="https://github.com/user-attachments/assets/6fdcf43b-cf47-429f-9b98-33c4946e3390" />
+
+
 ---
 
 ## 📚 Software Dependencies
@@ -108,4 +114,30 @@ const float LOW_PRESSURE_LIMIT = 1006.0;
 const float DARK_SKY_LIMIT = 500.0;
 
 // 4. ADMIN NUMBER
-const String ADMIN_PHONE = "+639xxxxxxxxx"; 
+const String ADMIN_PHONE = "+639xxxxxxxxx";
+```
+---
+
+## 📱 SMS Command List
+
+| Command | Response Description |
+|---------|-----------------------|
+| `STATUS` | Full system report: Temp, Humidity, Pressure, Light, Grain |
+| `GRAIN`  | Rice moisture status (SAFE / WET) |
+| `WEATHER` | Environmental data only |
+| `HELP`    | Returns list of commands |
+
+---
+
+## 🚨 Alert Logic
+
+### **1. Grain Alert (Priority 1)**  
+**Trigger:** Grain Value `< 2000`  
+**Message: ALERT: Grain Moisture Detected! Check drying area.**  
+
+
+### **2. Rain Alert (Priority 2)**  
+**Trigger:** Pressure `< 1006 hPa` **AND** Light `< 500 Lux`  
+**Message: WEATHER ADVISORY: Low Pressure detected. Rain is likely.**  
+
+
