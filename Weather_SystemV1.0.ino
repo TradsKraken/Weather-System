@@ -21,7 +21,7 @@ const float LOW_PRESSURE_LIMIT = 1006.0;
 const float DARK_SKY_LIMIT = 500.0;
 
 // 4. ADMIN NUMBER
-const String ADMIN_PHONE = "+639655666230"; 
+const String ADMIN_PHONE = "+63XXXXXXXXXX"; 
 
 // ===================================================================================
 
