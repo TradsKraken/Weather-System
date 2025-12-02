@@ -13,7 +13,7 @@ const int GRAIN_WET_LIMIT = 2000;
 
 // 2. WEATHER PREDICTION (BME280)
 // Standard Sea Level Pressure is ~1013 hPa.
-// A drop below 1006 usually indicates a Low Pressure Area (Rain likely).
+// A drop below 1006 indicates a Low Pressure Area (Rain likely).
 const float LOW_PRESSURE_LIMIT = 1006.0;
 
 // 3. DARKNESS (BH1750)
@@ -218,7 +218,7 @@ void checkIncomingSMS(float t, float h, float p, float l, int m) {
       valid = true;
     }
     else if (msg.indexOf("WEATHER") != -1) {
-      reply = "WEATHER:\nT: " + String(t,1) + "C\nH: " + String(h,0) + "%\nP: " + String(p,0) + "hPa\nL: " + String(l,0) + "lx";
+      reply = "WEATHER:\nTemperature: " + String(t,1) + "C\nHumidity: " + String(h,0) + "%\nPressure: " + String(p,0) + "hPa\nLight: " + String(l,0) + "lx";
       valid = true;
     }
     else if (msg.indexOf("HELP") != -1) {
